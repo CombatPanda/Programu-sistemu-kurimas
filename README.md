@@ -1,4 +1,6 @@
-# Java EE practice project
+#Programu sistemu kurimas 2022
+Bartas Šaltenis Programų sistemų 3 grupė
+## Java EE practice project
 Project is based on *Maven*, thus import project to IntelliJ IDEA by:
 * File -> Open... -> pick `pom.xml` file.
 
