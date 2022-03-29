@@ -6,10 +6,12 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.entities.Developer;
 import lt.vu.entities.Genre;
 import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.GamesDAO;
@@ -29,6 +31,9 @@ public class GamesForGenre implements Serializable {
     private Genre genre;
 
     @Getter @Setter
+    private Developer gameDeveloper = new Developer();
+
+    @Getter @Setter
     private Game gameToCreate = new Game();
 
     @PostConstruct
@@ -43,6 +48,7 @@ public class GamesForGenre implements Serializable {
     @LoggedInvocation
     public void createGame() {
         gameToCreate.setGenre(this.genre);
+       //gameToCreate.getGameDevelopers().add(gameDeveloper);
         gamesDAO.persist(gameToCreate);
     }
 }

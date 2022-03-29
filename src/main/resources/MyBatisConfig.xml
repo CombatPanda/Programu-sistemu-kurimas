@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias type="lt.vu.mybatis.model.Genre" alias="Genre"/>
         <typeAlias type="lt.vu.mybatis.model.Game" alias="Game"/>
+        <typeAlias type="lt.vu.mybatis.model.Game" alias="Developer"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

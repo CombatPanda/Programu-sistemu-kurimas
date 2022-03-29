@@ -46,4 +46,14 @@ public class UpdateGameDetails implements Serializable {
         }
         return "games.xhtml?genreId=" + this.game.getGenre().getId() + "&faces-redirect=true";
     }
+    @Transactional
+    @LoggedInvocation
+    public String updateGameDeveloper() {
+        try{
+            gamesDAO.update(this.game);
+        } catch (OptimisticLockException e) {
+            return "/gameDetails.xhtml?faces-redirect=true&gameId=" + this.game.getId() + "&error=optimistic-lock-exception";
+        }
+        return "games.xhtml?genreId=" + this.game.getGenre().getId() + "&faces-redirect=true";
+    }
 }

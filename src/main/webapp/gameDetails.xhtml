@@ -18,7 +18,7 @@
     </h:form>
     <h:form>
         <h:outputText value="#{generateGameCost.costGenerationStatus}" />
-        <h:commandButton value="Generate game number?" disabled="#{generateGameCost.costGenerationRunning}" action="#{generateGameCost.generateNewCost()}">
+        <h:commandButton value="Generate game cost?" disabled="#{generateGameCost.costGenerationRunning}" action="#{generateGameCost.generateNewCost()}">
             <f:param name="gameId" value="#{updateGameDetails.game.id}" />
         </h:commandButton>
     </h:form>
