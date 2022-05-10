@@ -7,6 +7,7 @@ import lt.vu.persistence.GamesDAO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.OptimisticLockException;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -22,6 +23,9 @@ public class GamesController {
     @Setter @Getter
     private GamesDAO gamesDAO;
 
+    @Inject
+    private EntityManager em;
+//    GET http://localhost:8080/java-ee-practice/api/games/1
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -59,4 +63,24 @@ public class GamesController {
             return Response.status(Response.Status.CONFLICT).build();
         }
     }
+
+    @Path("/")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Game create(Game u) {
+        em.persist(u);
+        return u;
+    }
+//    POST http://localhost:8080/java-ee-practice/api/games
+//    Accept: application/json
+//    Content-Type: application/json
+//
+//    {
+//        "id": 99,
+//            "cost": 10,
+//            "name": "bruh",
+//            "opt_lock_version": 1,
+//            "genre_id": 10
+//    }
 }

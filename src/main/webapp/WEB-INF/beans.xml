@@ -9,4 +9,13 @@
     <interceptors>
         <class>lt.vu.interceptors.MethodLogger</class>
     </interceptors>
+
+    <decorators>
+        <class>lt.vu.persistence.LongGameNameDecorator</class>
+    </decorators>
+
+    <alternatives>
+        <class>lt.vu.persistence.GamesDAO</class>
+<!--        <class>lt.vu.persistence.LogGamesDAO</class>-->
+    </alternatives>
 </beans>

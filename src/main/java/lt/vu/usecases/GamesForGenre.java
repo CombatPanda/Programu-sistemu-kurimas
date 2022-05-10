@@ -49,6 +49,7 @@ public class GamesForGenre implements Serializable {
     public void createGame() {
         gameToCreate.setGenre(this.genre);
        //gameToCreate.getGameDevelopers().add(gameDeveloper);
-        gamesDAO.persist(gameToCreate);
+        this.gamesDAO.persist(gameToCreate);
+        System.out.println("Persisted: " + gameToCreate.getName() + ", id: " + gameToCreate.getId());
     }
 }

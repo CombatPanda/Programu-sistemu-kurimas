@@ -1,13 +1,18 @@
 package lt.vu.persistence;
 
 import lt.vu.entities.Game;
+import lt.vu.interceptors.LogMethod;
+import lt.vu.interceptors.LoggedInvocation;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 
 @ApplicationScoped
-public class GamesDAO {
+@Alternative
+public class GamesDAO implements Games{
 
     @Inject
     private EntityManager em;
@@ -20,6 +25,7 @@ public class GamesDAO {
         return em.find(Game.class, id);
     }
 
+    @LogMethod
     public Game update(Game game){
         return em.merge(game);
     }

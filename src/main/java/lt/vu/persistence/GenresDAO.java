@@ -1,6 +1,7 @@
 package lt.vu.persistence;
 
 import lt.vu.entities.Genre;
+import lt.vu.interceptors.LogMethod;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -21,6 +22,7 @@ public class GenresDAO {
         this.em = em;
     }
 
+    @LogMethod
     public void persist(Genre genre){
         this.em.persist(genre);
     }

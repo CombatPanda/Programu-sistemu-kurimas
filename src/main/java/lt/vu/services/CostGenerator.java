@@ -11,6 +11,8 @@ public class CostGenerator implements Serializable {
         try {
             Thread.sleep(3000); // Simulate intensive work
         } catch (InterruptedException e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
         Integer generatedCost = new Random().nextInt(100);
         return generatedCost;

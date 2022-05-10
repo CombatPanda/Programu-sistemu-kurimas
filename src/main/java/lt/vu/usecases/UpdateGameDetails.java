@@ -44,6 +44,7 @@ public class UpdateGameDetails implements Serializable {
         } catch (OptimisticLockException e) {
             return "/gameDetails.xhtml?faces-redirect=true&gameId=" + this.game.getId() + "&error=optimistic-lock-exception";
         }
+        System.out.println("Updated: " + game.getName() + ", id: " + game.getId());
         return "games.xhtml?genreId=" + this.game.getGenre().getId() + "&faces-redirect=true";
     }
     @Transactional
